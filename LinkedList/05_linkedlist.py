@@ -18,19 +18,24 @@ class LinkedList(object):
         self.size+=1
     def transveral(self):
         actucal=self.head
+        r=[]
+        r.append(actucal.link)
         while actucal!=None:
             print(actucal.data)
             actucal=actucal.link
     def checkcircular(self):
         actucal=self.head
         f=0
+        r=[]
+        r.append(actucal.link)
         while(actucal.link!=None):
             actucal=actucal.link
-            if(actucal.link==self.head):
+            if(actucal.link in r):
                 f=1
+                at=actucal.link.data
                 break
         if(f==1):
-            print("circular")
+            print("circular at",at)
         else:
             print("not circular")
             
@@ -47,5 +52,6 @@ ll.insertend(node2)
 ll.insertend(node3)
 ll.insertend(node4)
 ll.insertend(node5)
-ll.insertend(node1)
+ll.insertend(node2)
 ll.checkcircular()
+
